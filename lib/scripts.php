@@ -79,7 +79,7 @@ add_action('wp_head', 'roots_jquery_local_fallback');
 
 /**
  * Google Analytics snippet from HTML5 Boilerplate
- * 
+ *
  * Cookie domain is 'auto' configured. See: http://goo.gl/VUCHKM
  */
 function roots_google_analytics() { ?>

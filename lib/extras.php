@@ -20,3 +20,16 @@ function roots_wp_title($title) {
   return $title;
 }
 add_filter('wp_title', 'roots_wp_title', 10);
+
+/**
+ * Filtering the Wrapper: Custom Post Types
+ */
+add_filter('roots_wrap_base', 'roots_wrap_base_cpts');
+
+function roots_wrap_base_cpts($templates) {
+    $cpt = get_post_type();
+    if ($cpt) {
+       array_unshift($templates, 'base-' . $cpt . '.php');
+    }
+    return $templates;
+}

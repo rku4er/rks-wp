@@ -27,5 +27,8 @@
 
   <?php get_template_part('templates/footer'); ?>
 
+  <!-- Livereload page -->
+  <script src="//localhost:35729/livereload.js"></script>
+
 </body>
 </html>
