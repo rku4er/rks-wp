@@ -10,7 +10,8 @@ function roots_setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus(array(
-    'primary_navigation' => __('Primary Navigation', 'roots')
+    'primary_navigation' => __('Primary Navigation', 'roots'),
+    'secondary_navigation' => __('Secondary Navigation', 'roots')
   ));
 
   // Add post thumbnails
@@ -18,6 +19,7 @@ function roots_setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_image_size( 'custom', 187, 215, true );
 
   // Add post formats
   // http://codex.wordpress.org/Post_Formats
@@ -55,3 +57,60 @@ function roots_widgets_init() {
   ));
 }
 add_action('widgets_init', 'roots_widgets_init');
+
+
+/**
+ * Custom post type
+ */
+add_action( 'init', 'create_posttype' );
+
+function create_posttype() {
+  register_post_type( 'attorney',
+    array(
+      'labels' => array(
+        'name' => __( 'Attorneys' ),
+        'singular_name' => __( 'Attorney' )
+      ),
+      'rewrite' => array('slug' => 'attorneys'),
+      'public' => true,
+      'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+      'has_archive' => true,
+      'menu_position' => 5,
+      'supports' => array(
+          'title',
+          'editor',
+          'excerpt',
+          'thumbnail'
+      ), // Go to Dashboard Custom HTML5 Blank post for supports
+      'can_export' => true, // Allows export in Tools > Export
+      'taxonomies' => array(
+          'post_tag',
+          'category'
+      ) // Add Category and Post Tags support
+    )
+  );
+  register_post_type( 'practicearea',
+    array(
+      'labels' => array(
+        'name' => __( 'Practice Areas' ),
+        'singular_name' => __( 'Practice Area' )
+      ),
+      'rewrite' => array('slug' => 'practice-areas'),
+      'public' => true,
+      'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+      'has_archive' => true,
+      'menu_position' => 5,
+      'supports' => array(
+          'title',
+          'editor',
+          'excerpt',
+          'thumbnail'
+      ), // Go to Dashboard Custom HTML5 Blank post for supports
+      'can_export' => true, // Allows export in Tools > Export
+      'taxonomies' => array(
+          'post_tag',
+          'category'
+      ) // Add Category and Post Tags support
+    )
+  );
+}

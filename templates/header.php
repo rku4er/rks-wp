@@ -1,10 +1,8 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
-
-
-      <a href="<?php echo esc_url(home_url('/')); ?>">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>" class="logo img-responsive">
-      </a>
+    <a href="<?php echo esc_url(home_url('/')); ?>">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>" class="logo img-responsive">
+    </a>
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">

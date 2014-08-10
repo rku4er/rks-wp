@@ -33,3 +33,4 @@ function roots_wrap_base_cpts($templates) {
     }
     return $templates;
 }
+
