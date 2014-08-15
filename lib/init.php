@@ -71,9 +71,9 @@ function create_posttype() {
         'name' => __( 'Attorneys' ),
         'singular_name' => __( 'Attorney' )
       ),
-      'rewrite' => array('slug' => 'attorneys'),
+      'rewrite' => array('slug' => 'archive-attorney'),
       'public' => true,
-      'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+      'hierarchical' => true,
       'has_archive' => true,
       'menu_position' => 5,
       'supports' => array(
@@ -81,23 +81,20 @@ function create_posttype() {
           'editor',
           'excerpt',
           'thumbnail'
-      ), // Go to Dashboard Custom HTML5 Blank post for supports
-      'can_export' => true, // Allows export in Tools > Export
-      'taxonomies' => array(
-          'post_tag',
-          'category'
-      ) // Add Category and Post Tags support
+      ),
+      'can_export' => true
     )
   );
+
   register_post_type( 'practicearea',
     array(
       'labels' => array(
         'name' => __( 'Practice Areas' ),
         'singular_name' => __( 'Practice Area' )
       ),
-      'rewrite' => array('slug' => 'practice-areas'),
+      'rewrite' => array('slug' => 'archive-practice-area'),
       'public' => true,
-      'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+      'hierarchical' => true,
       'has_archive' => true,
       'menu_position' => 5,
       'supports' => array(
@@ -105,12 +102,28 @@ function create_posttype() {
           'editor',
           'excerpt',
           'thumbnail'
-      ), // Go to Dashboard Custom HTML5 Blank post for supports
-      'can_export' => true, // Allows export in Tools > Export
-      'taxonomies' => array(
-          'post_tag',
-          'category'
-      ) // Add Category and Post Tags support
+      ),
+      'can_export' => true
+    )
+  );
+
+  register_post_type( 'faq',
+    array(
+      'labels' => array(
+        'name' => __( 'Family Law FAQ' ),
+        'singular_name' => __( 'Family Law FAQ' )
+      ),
+      'rewrite' => array('slug' => 'archive-faq'),
+      'public' => true,
+      'hierarchical' => true,
+      'has_archive' => true,
+      'menu_position' => 5,
+      'supports' => array(
+          'title',
+          'editor',
+          'excerpt'
+      ),
+      'can_export' => true,
     )
   );
 }

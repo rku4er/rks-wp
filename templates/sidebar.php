@@ -6,7 +6,7 @@
 <?php endif; ?>
 
 <?php if (has_nav_menu('secondary_navigation')) : ?>
-    <section class="widget widget-practice-areas">
+    <section class="widget widget-practice-area">
         <h3>Practice Areas</h3>
         <?php wp_nav_menu(array('theme_location' => 'secondary_navigation', 'menu_class' => 'sidebar-nav', 'walker' => new Walker_Nav_Menu())); ?>
     </section>
